@@ -3,295 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 Premium Master Prompt AI Interior Minimalis</title>
+    <title>Cortex AI - Automatic Digital Product Creator</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        @media print {
-            body { 
-                background-color: #ffffff !important; 
-                color: #1e293b !important; 
-            }
-            .no-print { display: none !important; }
-            #printArea { display: block !important; width: 100%; }
-            
-            @page {
-                size: A4;
-                margin: 20mm 15mm;
-            }
-            
-            @page :first {
-                background-color: #020617 !important;
-                margin: 0;
-            }
-
-            .page {
-                page-break-after: always !important;
-                break-after: always !important;
-                position: relative;
-                display: block !important;
-            }
-
-            .cover-container {
-                padding: 30mm 20mm;
-                height: 297mm;
-                color: #ffffff !important;
-                position: relative;
-                border-left: 8mm solid #059669 !important;
-                background-color: #020617 !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-            }
-
-            .prompt-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-            }
-
-            .prompt-box {
-                background-color: #f8fafc !important;
-                border: 1px solid #e2e8f0 !important;
-                border-left: 3px solid #059669 !important;
-                padding: 10px;
-                font-family: monospace;
-                font-size: 10px;
-                color: #334155;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-                border-radius: 4px;
-            }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .loading-shimmer {
+            background: linear-gradient(90deg, #0f172a 25%, #1e293b 50%, #0f172a 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
         }
-
-        .input-style {
-            width: 100%;
-            background-color: #020617;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 12px;
-            font-size: 14px;
-            color: #f1f5f9;
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen p-4 flex flex-col items-center">
+<body class="bg-slate-950 text-slate-100 min-h-screen pb-12">
 
-    <div class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl space-y-4 no-print my-4">
-        <div class="text-center">
-            <h1 class="text-2xl font-black text-emerald-400 tracking-tight">CORTEX AUTOMATION</h1>
-            <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">100 Prompt Database Engine</p>
-        </div>
+    <header class="bg-slate-900 border-b border-slate-800 py-6 text-center shadow-lg">
+        <h1 class="text-3xl font-black text-emerald-400 tracking-tight">🧠 CORTEX AI PRODUCT CREATOR</h1>
+        <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">Sistem Otomatis Generator Produk Digital & Cover Siap Jual</p>
+    </header>
 
-        <div class="space-y-1">
-            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Judul Utama E-Book</label>
-            <input id="txtJudul" type="text" value="100 Premium Master Prompt AI Interior Minimalis" class="input-style">
-        </div>
+    <main class="max-w-6xl mx-auto px-4 mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <section class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-5 h-fit">
+            <div class="border-b border-slate-800 pb-3">
+                <h2 class="text-lg font-bold text-emerald-400 flex items-center gap-2">
+                    <span>🤖</span> Perintah Produksi AI
+                </h2>
+                <p class="text-slate-400 text-xs mt-0.5">Ketik ide produk digital yang ingin Anda buat, AI akan bekerja membuatkannya.</p>
+            </div>
 
-        <div class="space-y-1">
-            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Kata Pengantar</label>
-            <textarea id="txtPengantar" rows="4" class="input-style leading-relaxed">Selamat datang di era baru desain interior digital. Panduan premium ini dirancang secara khusus oleh Cortex Digital untuk membantu Anda para desainer interior, arsitek, agen properti, maupun kreator konten digital dalam memotong waktu kerja visualisasi tanpa mengorbankan kualitas estetika sedikit pun.
+            <div class="space-y-1">
+                <div class="flex justify-between items-center">
+                    <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Gemini API Key</label>
+                    <a href="https://aistudio.google.com/" target="_blank" class="text-[10px] text-emerald-400 underline">Dapatkan API Key Gratis</a>
+                </div>
+                
+                <input id="apiKey" type="password" 
+                       value="MASUKKAN_KODE_API_GEMINI_BOS_DI_SINI" 
+                       placeholder="Masukkan AI Studio API Key Anda" 
+                       class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs font-mono focus:outline-none focus:border-emerald-500 text-slate-200">
+            </div>
 
-Di dalam e-book ini, Anda akan disajikan 100 Master Prompt terstruktur yang telah melalui proses kurasi dan uji coba mendalam di berbagai platform generator AI ternama seperti Midjourney, Leonardo AI, dan Bing Image Creator. Cukup salin kodenya, masukkan ke dalam platform AI pilihan Anda, dan saksikan ide-ide ruang minimalis impian Anda bertransformasi menjadi aset visual siap saji dalam hitungan detik.</textarea>
-        </div>
+            <div class="space-y-1">
+                <label class="text-xs font-bold text-slate-400 uppercase tracking-wider">Ide Produk Digital Yang Diinginkan</label>
+                <textarea id="promptIde" rows="4" placeholder="Contoh: Buatkan produk kumpulan 20 prompt midjourney interior bertema scandinavian lengkap dengan judul yang menjual dan kata pengantar." 
+                          class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-slate-200 leading-relaxed"></textarea>
+            </div>
 
-        <div class="space-y-1">
-            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Kalimat Penutup / Outro</label>
-            <textarea id="txtPenutup" rows="3" class="input-style leading-relaxed">Kunci utama dari hasil gambar representasi Kecerdasan Buatan (AI) yang luar biasa bukan hanya terletak pada platform atau tools yang Anda gunakan, melainkan pada kejelasan, detail, dan struktur dari perintah (prompt) yang Anda formulasikan.
+            <button onclick="generateProdukDigital()" id="btnGenerate" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black py-4 rounded-xl text-sm uppercase tracking-wider transition-all transform active:scale-95 shadow-lg shadow-emerald-500/20 cursor-pointer flex items-center justify-center gap-2">
+                🚀 GENERATE PRODUK & COVER SEKARANG
+            </button>
 
-Terima kasih telah mempercayakan investasi produk digital premium Anda kepada Cortex Digital. Teruslah berkarya, lakukan transformasi, dan sampai jumpa di mahakarya digital premium berikutnya!</textarea>
-        </div>
+            <button onclick="downloadHasilJadi()" id="btnDownload" class="hidden w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-xl text-sm uppercase tracking-wider transition-all border border-slate-700 cursor-pointer text-center">
+                📦 DOWNLOAD FILE PRODUK DIGITAL (.HTML)
+            </button>
+        </section>
 
-        <button onclick="generateDanCetak100()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black py-4 rounded-xl text-sm uppercase tracking-wider transition-all transform active:scale-95 cursor-pointer shadow-lg shadow-emerald-500/20">
-            ⚡ CETAK PDF 100 PROMPT LENGKAP
-        </button>
-    </div>
+        <section class="space-y-4">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                <span>👁️</span> Hasil Rakitan AI Siap Jual:
+            </h3>
+            
+            <div id="previewContainer" class="w-full space-y-6">
+                <div id="statusStandby" class="border-2 border-dashed border-slate-800 rounded-3xl p-12 text-center text-slate-500 text-sm">
+                    Silakan ketik ide produk Anda di panel kiri, kemudian klik tombol Generate.
+                </div>
 
-    <div id="printArea" class="hidden bg-white text-slate-900 w-full max-w-xl"></div>
+                <div id="statusLoading" class="hidden space-y-4">
+                    <div class="w-full aspect-[4/3] rounded-3xl loading-shimmer"></div>
+                    <div class="h-8 w-3/4 rounded-xl loading-shimmer"></div>
+                    <div class="h-20 w-full rounded-xl loading-shimmer"></div>
+                </div>
+
+                <div id="hasilJadiArea" class="hidden space-y-6">
+                    <div id="coverPreview" class="w-full aspect-[4/3] bg-gradient-to-tr from-slate-900 to-emerald-950 border-4 border-emerald-500 rounded-3xl p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden text-white">
+                        <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl"></div>
+                        <span class="bg-emerald-500 text-slate-950 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full w-fit">E-BOOK EXCLUSIVE</span>
+                        <div>
+                            <h2 id="viewJudulAI" class="text-2xl font-black leading-tight tracking-tight text-white">Judul Produk Otomatis</h2>
+                            <p class="text-xs text-emerald-400 font-bold tracking-widest uppercase mt-2">© Powered by Cortex AI</p>
+                        </div>
+                        <div class="border-t border-slate-800/80 pt-4 text-[10px] text-slate-400 flex justify-between items-center">
+                            <span>Premium Digital Asset</span>
+                            <span>Ready to Use Code ⚡</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 rounded-3xl p-6 shadow-2xl text-slate-800 max-h-[400px] overflow-y-auto text-xs space-y-3">
+                        <div class="border-b pb-3">
+                            <h3 class="font-bold text-slate-900 text-sm">Kata Pengantar & Isi Produk</h3>
+                        </div>
+                        <div id="viewIsiAI" class="whitespace-pre-line leading-relaxed text-justify text-slate-600 font-medium">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script>
-        // DATABASE LENGKAP 100 MASTER PROMPT AI INTERIOR
-        const databasePrompt = [
-            // JAPANDI STYLE (1-20)
-            { id: "01", nama: "Japandi Living Room - Morning Light", kode: "/imagine Japandi style living room, soft morning sunlight, oak wood furniture, beige linen sofa, olive tree plant, photorealistic, 8k --ar 16:9" },
-            { id: "02", nama: "Japandi Master Bedroom - Cozy Vibe", kode: "/imagine Cozy Japandi bedroom, low platform bed, light ash wood panels, warm white linen sheets, minimalist pendant lights, 8k --ar 16:9" },
-            { id: "03", nama: "Japandi Kitchen - Marble Island", kode: "/imagine Modern Japandi kitchen, matte white cabinets, light wood island, marble countertops, subtle indoor plants, architectural photography --ar 16:9" },
-            { id: "04", nama: "Japandi Dining Room - Rattan Chairs", kode: "/imagine Japandi dining space, round oak wood table, woven rattan dining chairs, large circular mirror, minimalist ceramic vase --ar 16:9" },
-            { id: "05", nama: "Japandi Bathroom - Terrazzo Accent", kode: "/imagine Minimalist Japandi bathroom, matte black fixtures, light concrete textures, terrazzo tile floor, freestanding bathtub --ar 16:9" },
-            { id: "06", nama: "Japandi Workspace - Home Office", kode: "/imagine Quiet Japandi home office, floating wood desk, ergonomic cream chair, slatted wood wall panel, natural sunlight --ar 16:9" },
-            { id: "07", nama: "Japandi Entryway - Mudroom Bench", kode: "/imagine Japandi foyer entryway, oak wood bench, circular wall hooks, pampas grass decor, neutral warm color palette --ar 16:9" },
-            { id: "08", nama: "Japandi Reading Nook - Accent Chair", kode: "/imagine Cozy Japandi reading corner, bouclé accent chair, minimalist floor lamp, small wooden side table, sheer curtains --ar 16:9" },
-            { id: "09", nama: "Japandi Balcony - Urban Oasis", kode: "/imagine Small Japandi balcony garden, wooden decking, low bamboo seating, warm string lights, vertical green wall, night view --ar 16:9" },
-            { id: "10", nama: "Japandi Walk-In Closet", kode: "/imagine Minimalist Japandi walk-in closet, open ash wood wardrobe system, soft hidden LED lighting, full-length mirror, neutral tone --ar 16:9" },
-            { id: "11", nama: "Japandi Studio Apartment Layout", kode: "/imagine Modern Japandi studio apartment interior, clever wood slatted room divider, smart space-saving furniture, high end --ar 16:9" },
-            { id: "12", nama: "Japandi Kids Bedroom", kode: "/imagine Pastel tone Japandi children bedroom, low floor bed, wooden toy storage, organic cotton linens, warm cozy light --ar 16:9" },
-            { id: "13", nama: "Japandi Media Center - Living Room", kode: "/imagine Japandi TV wall setup, low-slung wooden media console, lime wash wall paint texture, floating shelves, ceramic ornaments --ar 16:9" },
-            { id: "14", nama: "Japandi Coffee Shop Interior", kode: "/imagine Commercial Japandi café interior, long concrete bar counter, wooden stools, large windows, minimalist branding space --ar 16:9" },
-            { id: "15", nama: "Japandi Zen Meditation Room", kode: "/imagine Peaceful Japandi meditation space, tatami mats, low wooden altar, single bonsai tree, shoji screen wall panel --ar 16:9" },
-            { id: "16", nama: "Japandi Staircase Design", kode: "/imagine Floating wooden staircase, minimalist black steel handrail, concrete walls, under-stairs indoor zen garden setup --ar 16:9" },
-            { id: "17", nama: "Japandi Corridors - Minimal Hallway", kode: "/imagine Long Japandi hallway, recessed warm lighting, light oak wood floor planks, abstract minimal canvas art --ar 16:9" },
-            { id: "18", nama: "Japandi Guest Powder Room", kode: "/imagine Compact powder room, floating concrete sink vanity, round backlit mirror, raw wood elements, organic hand towels --ar 16:9" },
-            { id: "19", nama: "Japandi Rooftop Lounge", kode: "/imagine Luxurious Japandi rooftop terrace, weather-resistant wood sofas, outdoor fireplace, perimeter plants, dusk lighting --ar 16:9" },
-            { id: "20", nama: "Japandi Loft Living Space", kode: "/imagine High ceiling Japandi industrial loft interior, exposed brick painted white, massive black metal windows, warm oak wood furniture --ar 16:9" },
+        let fileHtmlSiapJual = "";
 
-            // WABI-SABI STYLE (21-40)
-            { id: "21", nama: "Wabi-Sabi Living Room - Raw Texture", kode: "/imagine Wabi-sabi living room, textured micro-cement walls, irregular shaped low wood table, organic linen fabrics, moody lighting --ar 16:9" },
-            { id: "22", nama: "Wabi-Sabi Bedroom - Earthy Tone", kode: "/imagine Raw rustic Wabi-sabi bedroom, low platform bed, wrinkled flax linen sheets, distressed wood stool, ceramic artifact decor --ar 16:9" },
-            { id: "23", nama: "Wabi-Sabi Kitchen - Concrete Counter", kode: "/imagine Rough plaster texture Wabi-sabi kitchen, cast-in-place concrete island, handmade pottery on open shelves, dark antique wood --ar 16:9" },
-            { id: "24", nama: "Wabi-Sabi Bathroom - Stone Sink", kode: "/imagine Cave-like Wabi-sabi bathroom, rough stone vessel sink, aged brass hardware, microcement wall finishing, candle lights --ar 16:9" },
-            { id: "25", nama: "Wabi-Sabi Tea Room", kode: "/imagine Traditional-modern Wabi-sabi tea ceremony room, low weathered wood table, handmade clay teacups, shadow play --ar 16:9" },
-            { id: "26", nama: "Wabi-Sabi Lounge - Sunken Seating", kode: "/imagine Dramatic Wabi-sabi sunken seating area, neutral organic cushions, central stone fire pit, lime plaster finish walls --ar 16:9" },
-            { id: "27", nama: "Wabi-Sabi Courtyard - Interior Garden", kode: "/imagine Minimal Wabi-sabi internal lightwell courtyard, single crooked moss tree, raked gravel garden, sliding glass doors --ar 16:9" },
-            { id: "28", nama: "Wabi-Sabi Art Studio", kode: "/imagine Creative Wabi-sabi artist atelier workshop, raw concrete floor, giant unpainted canvases, rustic timber worktables, natural light --ar 16:9" },
-            { id: "29", nama: "Wabi-Sabi Walkway Corridor", kode: "/imagine Architectural Wabi-sabi corridor, curved plaster ceiling, soft indirect cove lighting, shadow cast by olive branch --ar 16:9" },
-            { id: "30", nama: "Wabi-Sabi Dining - Reclaimed Wood", kode: "/imagine Wabi-sabi dining area, heavy uneven reclaimed timber dining table, mismatched raw wooden chairs, organic clay vase decoration --ar 16:9" },
-            { id: "31", nama: "Wabi-Sabi Luxury Resort Suite", kode: "/imagine High-end Wabi-sabi boutique hotel bedroom suite, panoramic view of nature, custom textured stone furniture, premium linen --ar 16:9" },
-            { id: "32", nama: "Wabi-Sabi Library Study", kode: "/imagine Quiet study room in Wabi-sabi aesthetic, floor-to-ceiling dark wood bookshelves, single linen reading chair, warm ambient lamp --ar 16:9" },
-            { id: "33", nama: "Wabi-Sabi Spa Bathroom", kode: "/imagine Luxury wellness spa bathroom, oversized round concrete hot tub, natural slate stone flooring, trickling water feature, serene --ar 16:9" },
-            { id: "34", nama: "Wabi-Sabi Fireplace Hearth", kode: "/imagine Living room focal point Wabi-sabi fireplace, asymmetrical plaster mantelpiece, floating concrete ledge, warm glowing logs --ar 16:9" },
-            { id: "35", nama: "Wabi-Sabi Office Reception Desk", kode: "/imagine Modern organic Wabi-sabi office lobby, monolithic raw boulder reception counter, minimalist brass logo plate, olive trees --ar 16:9" },
-            { id: "36", nama: "Wabi-Sabi Wine Cellar", kode: "/imagine Subterranean Wabi-sabi inspired wine cellar, rough stone arches, display racks crafted from distressed wood, tasting table --ar 16:9" },
-            { id: "37", nama: "Wabi-Sabi Outdoor Covered Patio", kode: "/imagine Mediterranean Wabi-sabi veranda porch, pergola roof with reed shades, plaster bench with outdoor upholstery, summer afternoon --ar 16:9" },
-            { id: "38", nama: "Wabi-Sabi Minimalist Closet", kode: "/imagine Rough lime wash painted wardrobe alcove, linen fabric curtain doors instead of wood, single wrought-iron clothing rack --ar 16:9" },
-            { id: "39", nama: "Wabi-Sabi Hotel Lounge Bar", kode: "/imagine Cinematic Wabi-sabi bar interior, dim amber lighting, long textured clay counter edge, brass details, high end aesthetics --ar 16:9" },
-            { id: "40", nama: "Wabi-Sabi Attic Guest Bedroom", kode: "/imagine Cozy attic bedroom with exposed old timber roof beams, low floor bedding, limewash walls, view through skylight --ar 16:9" },
+        async function generateProdukDigital() {
+            const apiKey = document.getElementById('apiKey').value;
+            const ide = document.getElementById('promptIde').value;
 
-            // MODERN MINIMALIST (41-60)
-            { id: "41", nama: "Modern Minimalist Kitchen - Sleek Black", kode: "/imagine Architectural modern minimalist kitchen, handle-less matte black cabinets, seamless white quartz island, high-end appliances --ar 16:9" },
-            { id: "42", nama: "Modern Minimalist Living Room - High Ceiling", kode: "/imagine Double height minimalist living room, massive glass window facade, low-profile modular light gray sofa, linear modern fireplace --ar 16:9" },
-            { id: "43", nama: "Modern Office Workspace - Executive", kode: "/imagine Minimalist executive office interior, glass desk, matte black desk lamp, premium black leather chair, concrete flooring --ar 16:9" },
-            { id: "44", nama: "Modern Minimalist Bedroom - Floating Bed", kode: "/imagine Minimalist bedroom design, floating bed frame with under-bed LED strip, dark charcoal wood accent wall, stark contrast --ar 16:9" },
-            { id: "45", nama: "Modern Home Theater Lounge", kode: "/imagine Ultra-sleek home cinema room, acoustic wall panels, oversized minimalist deep velvet couches, subtle starlight ceiling --ar 16:9" },
-            { id: "46", nama: "Modern Minimalist Gym - Home Fitness", kode: "/imagine Luxury home gym space, floor-to-ceiling mirrors, wood slat ceiling accents, high end workout equipment, bright clean light --ar 16:9" },
-            { id: "47", nama: "Modern Walk-In Wardrobe - Glass Doors", kode: "/imagine High-end minimalist walk-in closet, tinted glass wardrobe doors with internal track lighting, center marble island tray --ar 16:9" },
-            { id: "48", nama: "Modern Minimalist Laundry Room", kode: "/imagine Functional minimalist utility laundry room, seamless white laminate cabinets, hidden washer dryer units, sleek laundry sink --ar 16:9" },
-            { id: "49", nama: "Modern Corridor Gallery - Art Track", kode: "/imagine Bright white minimalist art gallery hallway, professional track spotlights, oversized contemporary oil paintings, polished concrete --ar 16:9" },
-            { id: "50", nama: "Modern Minimalist Staircase - Glass Railing", kode: "/imagine Monolithic white marble staircase steps, structural glass frameless balustrade, hidden handrail lighting strip --ar 16:9" },
-            { id: "51", nama: "Modern Kids Playroom - Scandinavian Mix", kode: "/imagine Bright minimal kids playroom, scandinavian white wood toy bins, built-in reading cabin, monochrome climbing wall --ar 16:9" },
-            { id: "52", nama: "Modern Penthouse Living Room - Skyline View", kode: "/imagine Luxury penthouse apartment living room, sleek custom Italian furniture, wrap-around floor windows overlooking Tokyo skyline at night --ar 16:9" },
-            { id: "53", nama: "Modern Garage - Luxury Car Display", kode: "/imagine Ultra-minimalist showroom garage, glossy black epoxy floor, overhead geometric diffuse LED panel bars, supercar profile --ar 16:9" },
-            { id: "54", nama: "Modern Rooftop Pool Deck - Minimalist", kode: "/imagine Infinity rooftop pool edge, sleek white lounge chaises, glass barriers, dramatic sunset sky reflections, architectural digest --ar 16:9" },
-            { id: "55", nama: "Modern Minimalist Gaming Room Setup", kode: "/imagine Clean aesthetic gamer room setup, matte white desk, single ultra-wide monitor, custom linear dynamic RGB wall tracks --ar 16:9" },
-            { id: "56", nama: "Modern Dining Room - Minimal Steel", kode: "/imagine Minimalist dining room, matte black steel dining table base, smoked glass top, brushed metal architectural chandelier --ar 16:9" },
-            { id: "57", nama: "Modern Minimalist Guest Powder Room", kode: "/imagine Floating black marble block washbasin, full height mirror strip, dark textured charcoal wallpaper, concealed toilet --ar 16:9" },
-            { id: "58", nama: "Modern Foyer - Monolithic Sculpture", kode: "/imagine Minimalist grand house foyer, double-height ceiling, central pedestal displaying a modern abstract white marble sculpture --ar 16:9" },
-            { id: "59", nama: "Modern Minimalist Outdoor Kitchen", kode: "/imagine Backyard covered outdoor kitchen, stainless steel grill integration, polished dark concrete countertop, sleek bar counter --ar 16:9" },
-            { id: "60", nama: "Modern Minimalist Music Room - Studio", kode: "/imagine Soundproof audiophile listening room, high-end tower speakers, single classic Eames lounge chair, acoustic custom walnut diffusers --ar 16:9" },
-
-            // MINIMALIST LUXURY / WARM CONTEMPORARY (61-80)
-            { id: "61", nama: "Luxury Minimalist Salon - Retail Space", kode: "/imagine High-end hair salon interior, custom curved brass mirrors, cream velvet styling chairs, indirect warm wall arches --ar 16:9" },
-            { id: "62", nama: "Luxury Living Room - Calacatta Marble", kode: "/imagine Warm luxury contemporary living room, book-matched Calacatta marble wall, premium beige fabric sectional sofa, gold accents --ar 16:9" },
-            { id: "63", nama: "Luxury Hotel Bedroom Suite - Warm Gold", kode: "/imagine Boutique hotel master suite, plush custom velvet headboard, warm gold metal bedside details, soft ambient panel lighting --ar 16:9" },
-            { id: "64", nama: "Luxury Master Bathroom - Freestanding Tub", kode: "/imagine Spa-like master bathroom, monolithic marble block vanity, golden brushed brass faucets, freestanding stone tub, warm glow --ar 16:9" },
-            { id: "65", nama: "Luxury Walk-In Closet - Onyx Island", kode: "/imagine High-end fashion walk-in closet, backlit white onyx accessory island counter, plush velvet ottoman pouf, custom glass display --ar 16:9" },
-            { id: "66", nama: "Luxury Wine Tasting Lounge Room", kode: "/imagine Private luxury wine cellar club room, plush leather armchairs, custom integrated wood storage racks, heavy crystal glassware --ar 16:9" },
-            { id: "67", nama: "Luxury Dining Room - Crystal Chandelier", kode: "/imagine Formal luxury dining room, long walnut dining table for 10, modern minimalist crystal branch chandelier, dark wood veneers --ar 16:9" },
-            { id: "68", nama: "Luxury Home Office - Dark Walnut Wood", kode: "/imagine Executive home workspace, custom dark walnut wall storage, warm leather desk mat, integrated lighting bookshelves --ar 16:9" },
-            { id: "69", nama: "Luxury Library Lounge - Fireplace Vibe", kode: "/imagine Elegant library lounge room, double story walnut bookshelves with brass rolling ladder, tufted leather chesterfield sofa --ar 16:9" },
-            { id: "70", nama: "Luxury Home Entrance - Pivot Door", kode: "/imagine Grand luxury entryway foyer, massive wooden pivot main door, floor-to-ceiling glass panel windows, designer chandelier --ar 16:9" },
-            { id: "71", nama: "Luxury Cigar Lounge Bar Room", kode: "/imagine Private gentlemen cigar lounge club room, low warm amber illumination, dark emerald velvet walls, leather wingback club chairs --ar 16:9" },
-            { id: "72", nama: "Luxury Spa Wellness Sauna Room", kode: "/imagine Indoor wellness spa wet area, custom cedar wood bio sauna cube glass wall, stone steam shower room floor plates --ar 16:9" },
-            { id: "73", nama: "Luxury Kitchen - Chef Presentation", kode: "/imagine Ultra-luxury show kitchen, premium brushed bronze cabinet finishing, continuous waterfall quartzite island countertop --ar 16:9" },
-            { id: "74", nama: "Luxury Indoor Swimming Pool Oasis", kode: "/imagine Heated indoor swimming pool hall, travertine stone wall panels, indirect architectural cove ceiling light, water reflections --ar 16:9" },
-            { id: "75", nama: "Luxury Nursery Baby Room - High End", kode: "/imagine Elegant luxury baby nursery room, custom tufted crib, neutral cream wool rug, soft warm cloud chandelier light --ar 16:9" },
-            { id: "76", nama: "Luxury Penthouse Rooftop Dining", kode: "/imagine Outdoor penthouse dining terrace, custom marble dining table table, contemporary design chairs, overhead string lighting at twilight --ar 16:9" },
-            { id: "77", nama: "Luxury Home Bar Lounge Counter", kode: "/imagine Intimate home wet bar alcove, backlit exotic stone countertop, brushed brass shelving display, velvet upholstered high counter stools --ar 16:9" },
-            { id: "78", nama: "Luxury Master Bedroom Closet Closet", kode: "/imagine Integrated master suite closet wall, custom millwork, soft closing leather-lined jewelry drawers, warm integrated profile LEDs --ar 16:9" },
-            { id: "79", nama: "Luxury Powder Room - Emerald Marble", kode: "/imagine Jewel box style guest toilet, dramatic emerald green stone vanity block, custom organic shape vanity mirror, brass finishes --ar 16:9" },
-            { id: "80", nama: "Luxury Covered Patio Veranda Setup", kode: "/imagine Mediterranean warm contemporary veranda porch, outdoor custom kitchen island, premium stone flooring, sunset garden view --ar 16:9" },
-
-            // INDUSTRIAL & LOFT MINIMALIST (81-100)
-            { id: "81", nama: "Industrial Loft Living Room - Concrete", kode: "/imagine Minimalist industrial loft living room, double height raw concrete walls, exposed ceiling black iron ducts, large leather sofa --ar 16:9" },
-            { id: "82", nama: "Industrial Bedroom - Brick Accent", kode: "/imagine Industrial loft style bedroom, distressed dark brick feature wall, matte black steel pipe frame bed, warm industrial Edison bulbs --ar 16:9" },
-            { id: "83", nama: "Industrial Kitchen - Metal & Wood", kode: "/imagine Industrial kitchen design, reclaimed timber wood shelving, black steel island framework, wire-glass pendant fixtures --ar 16:9" },
-            { id: "84", nama: "Industrial Office Workspace Lounge", kode: "/imagine Creative studio industrial agency workspace, open concept floor plan, shared long oak workbenches, large black factory windows --ar 16:9" },
-            { id: "85", nama: "Industrial Bathroom - Copper Finish", kode: "/imagine Dark moody industrial bathroom, exposed copper pipe plumbing lines, concrete cast basin bucket, matte black grid shower screen --ar 16:9" },
-            { id: "86", nama: "Industrial Loft Dining - Metal Frame", kode: "/imagine Urban industrial dining area, solid thick wood dining table slab, distressed metal factory chairs, industrial pendant dome lights --ar 16:9" },
-            { id: "87", nama: "Industrial Coffee Shop Bar Interior", kode: "/imagine Trendy industrial cafe espresso bar, corrugated metal bar front panel, concrete micro-screed floor, neon wall sign graphic --ar 16:9" },
-            { id: "88", nama: "Industrial Home Entryway - Steel Rack", kode: "/imagine Loft entryway mudroom area, industrial iron mesh storage coat organizer, vintage distressed wood console desk top --ar 16:9" },
-            { id: "89", nama: "Industrial Reading Studio Nook", kode: "/imagine Cozy industrial corner bookshelf nook, pipe-frame wall shelving units, distressed tan leather armchair, rustic floor lamp --ar 16:9" },
-            { id: "90", nama: "Industrial Basement Bar Vault", kode: "/imagine Speakeasy style basement home bar, exposed brick archway vaults, dark wooden countertop, dim atmospheric low lighting --ar 16:9" },
-            { id: "91", nama: "Industrial Micro-Apartment Layout", kode: "/imagine Compact minimal industrial loft flat, space-saver metal sleeping platform mezzanine, open steel pipe stairs --ar 16:9" },
-            { id: "92", nama: "Industrial Walk-In Dressing Wardrobe", kode: "/imagine Urban open concept industrial closet wardrobe closet, raw scaffold pipe racks, distressed concrete wall finishes --ar 16:9" },
-            { id: "93", nama: "Industrial Photo Studio Atelier", kode: "/imagine Professional photography cyclorama studio loft workspace, raw factory glass windows, tall heavy adjustable softboxes floor stands --ar 16:9" },
-            { id: "94", nama: "Industrial Cocktail Lounge Bar", kode: "/imagine Industrial chic night club bar room, polished steel counter trim, custom mesh bottle cage racks, plush Chesterfield banquette booths --ar 16:9" },
-            { id: "95", nama: "Industrial Modern Garage Studio", kode: "/imagine Multipurpose garage hobby workshop loft, clean gray painted brickwork, iron tool pegboard panels, industrial linear overhead lights --ar 16:9" },
-            { id: "96", nama: "Industrial Home Gym Fitness Space", kode: "/imagine Industrial style home gym, heavy iron weight rack plates, black interlocking rubber tile mats, motivational wall mural art --ar 16:9" },
-            { id: "97", nama: "Industrial Stairwell - Mesh Railing", kode: "/imagine Raw architectural loft iron staircase structure, expanded metal mesh guardrails balustrade, sandblasted stone brick walls --ar 16:9" },
-            { id: "98", nama: "Industrial Penthouse Living Room Layout", kode: "/imagine Industrial high luxury loft layout, massive open space lounge, exposed original architectural metal trusses, skyline view --ar 16:9" },
-            { id: "99", nama: "Industrial Rooftop Deck Covered Lounge", kode: "/imagine Urban industrial rooftop garden terrace workspace, steel frame canopy cover, rustic wood pallet couches, downtown view --ar 16:9" },
-            { id: "100", nama: "Industrial Audiophile Music Lounge Studio", kode: "/imagine Dark industrial sound engineering production workspace console table, custom acoustic foam panel blocks, moody orange glowing LEDs --ar 16:9" }
-        ];
-
-        function generateDanCetak100() {
-            const judul = document.getElementById('txtJudul').value;
-            const pengantar = document.getElementById('txtPengantar').value;
-            const penutup = document.getElementById('txtPenutup').value;
-
-            // Bagi 100 prompt ke dalam beberapa halaman secara matematis (Rata per halaman)
-            const promptsPerHalaman = 15; 
-            let htmlMateriPrompt = '';
-
-            for (let i = 0; i < databasePrompt.length; i += promptsPerHalaman) {
-                const chunk = databasePrompt.slice(i, i + promptsPerHalaman);
-                let isiGrid = '';
-                
-                chunk.forEach(item => {
-                    isiGrid += `
-                        <div class="mb-2" style="page-break-inside: avoid; break-inside: avoid;">
-                            <div class="font-bold text-slate-900 text-[11px] mb-0.5">${item.id}. ${item.nama}</div>
-                            <div class="prompt-box">${item.kode}</div>
-                        </div>
-                    `;
-                });
-
-                htmlMateriPrompt += `
-                    <div class="page" style="padding: 10mm 0;">
-                        <h2 class="text-lg font-black text-slate-900 border-l-4 border-emerald-600 pl-3 mb-4 uppercase tracking-tight">Materi Inti & Daftar Prompt</h2>
-                        <div class="prompt-grid">
-                            ${isiGrid}
-                        </div>
-                    </div>
-                `;
+            if (!apiKey || apiKey === "MASUKKAN_KODE_API_GEMINI_BOS_DI_SINI" || !ide) {
+                alert("Mohon isi kode API Key Gemini asli Anda di dalam kode HTML terlebih dahulu, Bos!");
+                return;
             }
 
-            // Gabungkan menjadi struktur 10 Halaman Utama yang Presisi
-            const target = document.getElementById('printArea');
-            target.innerHTML = `
-                <div class="page">
-                    <div class="cover-container flex flex-col justify-between">
-                        <div>
-                            <div class="text-sm font-bold uppercase tracking-[4px] text-emerald-400">Cortex Digital Presents</div>
-                            <div class="w-12 h-1 bg-emerald-600 mt-3"></div>
-                        </div>
-                        <div style="margin-top: 50mm; margin-bottom: 50mm;">
-                            <div class="text-3xl font-black leading-tight text-white">${judul}</div>
-                            <p class="text-xs text-slate-400 mt-4 max-w-sm leading-relaxed">Panduan eksklusif berisi 100 Master Prompt berstandar profesional untuk menghasilkan visualisasi ruang masa depan yang fotorealistik.</p>
-                        </div>
-                        <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[10px] text-slate-500">
-                            <span class="bg-emerald-600 text-white px-3 py-1 rounded font-bold uppercase text-[9px]">Premium Edition</span>
-                            <span>© 2026 Cortex Automation. All Rights Reserved.</span>
-                        </div>
-                    </div>
-                </div>
+            // Ubah Status Tampilan ke Mode Loading
+            document.getElementById('statusStandby').classList.add('hidden');
+            document.getElementById('hasilJadiArea').classList.add('hidden');
+            document.getElementById('btnDownload').classList.add('hidden');
+            document.getElementById('statusLoading').classList.remove('hidden');
+            document.getElementById('btnGenerate').innerText = "⏳ AI SEDANG MENULIS PRODUK...";
+            document.getElementById('btnGenerate').disabled = true;
 
-                <div class="page" style="padding: 10mm 0;">
-                    <h2 class="text-xl font-black text-slate-900 border-l-4 border-emerald-600 pl-3 mb-6 uppercase tracking-tight">Kata Pengantar</h2>
-                    <div class="text-xs text-slate-700 space-y-4 leading-relaxed text-justify whitespace-pre-line font-medium">${pengantar}</div>
-                </div>
+            const systemInstruction = `Anda adalah mesin pembuat produk digital otomatis. Berdasarkan ide pengguna, buatlah produk digital komplit. Respon wajib berbentuk JSON murni tanpa markdown dengan struktur: {"judul": "Judul Buku Yang Menjual", "pengantar": "Kata pengantar lengkap", "konten": "Isi detail seluruh materi atau daftar prompt lengkap nomor 1 sampai selesai sesuai permintaan pengguna"}`;
 
-                ${htmlMateriPrompt}
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: `${systemInstruction}\n\nIde Pengguna: ${ide}` }] }]
+                    })
+                });
 
-                <div class="page" style="page-break-after: avoid !important; break-after: avoid !important; padding: 10mm 0;">
-                    <h2 class="text-xl font-black text-slate-900 border-l-4 border-emerald-600 pl-3 mb-6 uppercase tracking-tight">Kalimat Penutup</h2>
-                    <div class="text-xs text-slate-700 space-y-4 leading-relaxed text-justify whitespace-pre-line font-medium mb-12">${penutup}</div>
-                    <div class="pt-4 border-t border-slate-200">
-                        <p class="text-xs text-slate-400 font-bold">Salam Sukses,</p>
-                        <p class="text-emerald-600 font-black text-sm mt-0.5">Cortex Digital Team</p>
-                    </div>
-                </div>
-            `;
+                const data = await response.json();
+                let txtHasil = data.candidates[0].content.parts[0].text;
+                
+                txtHasil = txtHasil.replace(/```json/g, "").replace(/```/g, "").trim();
+                const jsonProduk = JSON.parse(txtHasil);
 
-            // Eksekusi Printer HP
-            window.print();
+                // Masukkan data ke komponen Preview Layar
+                document.getElementById('viewJudulAI').innerText = jsonProduk.judul;
+                document.getElementById('viewIsiAI').innerHTML = `
+                    <p class="font-bold text-slate-800 mb-2">👋 KATA PENGANTAR:</p>
+                    <p class="mb-4">${jsonProduk.pengantar}</p>
+                    <p class="font-bold text-slate-800 mb-2">📦 INTI ISI MATERI PRODUK:</p>
+                    <p class="font-mono bg-slate-50 p-3 rounded-xl border border-slate-200 text-[11px] whitespace-pre-wrap">${jsonProduk.konten}</p>
+                `;
+
+                // RAKIT ARSITEKTUR FILE HTML MANDIRI SIAP JUAL
+                fileHtmlSiapJual = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${jsonProduk.judul}</title>
+</head>
+<body style="background-color: #f8fafc; font-family: sans-serif; padding: 20px; color: #334155;">
+    <div style="max-w: 650px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+        <div style="background: linear-gradient(135deg, #0f172a, #064e3b); color: white; padding: 30px; border-radius: 12px; margin-bottom: 25px; text-align: center;">
+            <h1 style="font-size: 24px; font-weight: 900; margin: 0; line-height: 1.3;">${jsonProduk.judul}</h1>
+            <p style="font-size: 11px; color: #10b981; margin: 10px 0 0 0; font-weight: bold;">OFFICIAL PREMIUM DIGITAL PRODUCT</p>
+        </div>
+        <div style="margin-bottom: 25px;">
+            <h3 style="font-size: 14px; color: #0f172a;">👋 Kata Pengantar:</h3>
+            <p style="font-size: 13px; color: #475569; line-height: 1.6; text-align: justify; white-space: pre-line;">${jsonProduk.pengantar}</p>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 25px 0;">
+        <div>
+            <h3 style="font-size: 14px; color: #0f172a; text-transform: uppercase; margin-bottom: 15px;">📦 Isi Utama Dokumen:</h3>
+            <div style="font-family: monospace; font-size: 12px; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #cbd5e1; white-space: pre-wrap; line-height: 1.7; color: #0f172a;">${jsonProduk.konten}</div>
+        </div>
+        <div style="margin-top: 40px; padding-top: 15px; border-top: 1px solid #e2e8f0; text-align: center; font-size: 11px; color: #94a3b8;">
+            Terima kasih telah membeli produk digital resmi kami. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+    </div>
+</body>
+</html>`;
+
+                document.getElementById('statusLoading').classList.add('hidden');
+                document.getElementById('hasilJadiArea').classList.remove('hidden');
+                document.getElementById('btnDownload').classList.remove('hidden');
+
+            } catch (error) {
+                alert("Waduh maaf Bos, koneksi API gagal. Coba pastikan kodenya sudah benar!");
+                console.error(error);
+                document.getElementById('statusLoading').classList.add('hidden');
+                document.getElementById('statusStandby').classList.remove('hidden');
+            } finally {
+                document.getElementById('btnGenerate').innerText = "🚀 GENERATE PRODUK & COVER SEKARANG";
+                document.getElementById('btnGenerate').disabled = false;
+            }
+        }
+
+        function downloadHasilJadi() {
+            const judulClean = document.getElementById('viewJudulAI').innerText.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            const blob = new Blob([fileHtmlSiapJual], { type: 'text/html' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "produk_jadi_" + judulClean + ".html";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
     </script>
 </body>
