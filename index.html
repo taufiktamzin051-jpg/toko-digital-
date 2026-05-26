@@ -3,78 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cortex PDF Generator</title>
+    <title>Cortex PDF - Premium Builder</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Mengatur agar saat dicetak, hanya area dokumen yang muncul */
+        body { font-family: 'Poppins', sans-serif; }
         @media print {
             body * { display: none; }
             #printArea, #printArea * { display: block; }
-            #printArea { position: absolute; left: 0; top: 0; width: 100%; color: #000 !important; }
-            .no-print { display: none !important; }
+            #printArea { position: absolute; left: 0; top: 0; width: 100%; }
+            .page-break { page-break-before: always; }
+        }
+        .cover-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_collection/image_retrieval/4772452977217759515');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col items-center p-4 font-sans">
+<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col items-center p-4">
 
     <header class="w-full max-w-2xl text-center my-6">
         <h1 class="text-3xl font-black tracking-tight text-emerald-400">CORTEX AUTOMATION</h1>
-        <p class="text-gray-400 text-sm mt-1">Satu Klik Jadi E-Book PDF</p>
+        <p class="text-gray-400 text-sm mt-1 uppercase tracking-widest">E-Book Master Engine v2.0</p>
     </header>
 
-    <main class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-xl space-y-4">
+    <main class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-3xl p-6 shadow-2xl space-y-4">
         <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Judul E-Book</label>
-            <input type="text" id="ebookTitle" value="50+ Premium AI Prompt Interior Minimalis" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white">
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Judul Produk (Muncul di Cover)</label>
+            <input type="text" id="ebookTitle" value="50+ Premium AI Prompt Interior Minimalis" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white font-bold">
         </div>
 
         <div>
-            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Isi Konten Produk</label>
-            <textarea id="ebookContent" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm focus:outline-none focus:border-emerald-500 text-white resize-none">PROMPT 01: Ruang Tamu Utama Japandi
-Kode: /imagine Japandi style living room, soft morning sunlight, oak wood furniture, beige linen sofa, olive tree plant in concrete pot, architectural digest style, photorealistic, 8k resolution, cinematic lighting --ar 16:9
-
-PROMPT 02: Kamar Tidur Utama Wabi-Sabi
-Kode: /imagine Wabi-sabi bedroom interior, textured plaster walls, low profile platform bed, raw linen fabrics, dried pampas grass in a large ceramic vase, warm earthy tones, moody ambient lighting --ar 16:9
-
-PROMPT 03: Dapur Bersih Modern Luxury
-Kode: /imagine Ultra-modern luxury kitchen, black matte cabinetry, white calacatta marble island, gold brass fixtures, hidden LED linear lights, dusk mood, view of city lights --ar 16:9</textarea>
+            <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Isi Konten E-Book</label>
+            <textarea id="ebookContent" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-xs focus:outline-none focus:border-emerald-500 text-white resize-none leading-relaxed">TEMPEL MATERI LENGKAP ANDA DI SINI...</textarea>
         </div>
 
-        <button onclick="prosesCetakInstan()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold py-3.5 rounded-xl text-center block shadow-lg shadow-emerald-500/10 cursor-pointer text-sm">
-            ⚡ CETAK PDF OTOMATIS
+        <button onclick="window.print()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-black py-4 rounded-2xl text-center block shadow-lg shadow-emerald-500/20 cursor-pointer transform active:scale-95 transition-all uppercase tracking-tighter">
+            ⚡ GENERATE E-BOOK + COVER MEWAH
         </button>
     </main>
 
-    <div id="printArea" class="hidden bg-white text-black p-8" style="font-family: Arial, sans-serif;">
-        <div style="border: 5px solid #10b981; padding: 40px; height: 260mm; display: flex; flex-direction: column; justify-content: space-between; background-color: #f8fafc;">
-            <div>
-                <p style="font-size: 12px; text-transform: uppercase; font-weight: bold; tracking-widest; color: #059669;">Premium Digital Asset</p>
-                <h1 id="pdfTitle" style="font-size: 32px; font-weight: 900; color: #0f172a; margin-top: 20px;"></h1>
-                <div style="width: 80px; height: 6px; background-color: #10b981; margin-top: 20px;"></div>
+    <div id="printArea" class="hidden">
+        <div class="cover-bg relative w-full h-[296mm] flex flex-col justify-between p-16 text-white overflow-hidden">
+            <div class="z-10">
+                <p class="text-xl font-bold tracking-[0.5em] text-emerald-400 opacity-80 uppercase">Cortex Digital Presents</p>
+                <div class="w-20 h-2 bg-emerald-500 mt-4"></div>
             </div>
-            <div style="border-top: 1px solid #e2e8f0; pt: 20px; display: flex; justify-content: space-between;">
-                <p style="font-size: 14px;">Diterbitkan oleh: <strong>Cortex Digital</strong></p>
-                <p style="font-size: 12px; color: #94a3b8;">© 2026 Hak Cipta Dilindungi</p>
+            
+            <div class="z-10 mb-20">
+                <h1 id="pdfTitleDisplay" class="text-7xl font-black leading-[0.9] tracking-tighter mb-6"></h1>
+                <p class="text-2xl font-light tracking-wide text-gray-300">Panduan Lengkap Master Prompt AI untuk Profesional & Desainer.</p>
+                <div class="mt-12 flex items-center space-x-4">
+                    <span class="bg-emerald-600 px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest">Premium Edition</span>
+                    <span class="text-gray-400 text-sm">© 2026 Cortex Automation</span>
+                </div>
             </div>
         </div>
-        
-        <div style="page-break-before: always; margin-top: 30px;">
-            <h2 style="font-size: 20px; font-weight: bold; color: #059669; border-b: 2px solid #10b981; padding-bottom: 5px;">DAFTAR ISI & MATERI INTI</h2>
-            <div id="pdfContent" style="font-size: 14px; white-space: pre-line; line-height: 1.6; color: #334155; margin-top: 20px;"></div>
+
+        <div class="page-break bg-white p-16 text-gray-900 min-h-[297mm]">
+            <h2 class="text-3xl font-black text-emerald-700 border-b-4 border-emerald-500 pb-4 mb-8 uppercase tracking-tighter">Materi Inti & Daftar Prompt</h2>
+            <div id="pdfContentDisplay" class="text-sm whitespace-pre-line leading-relaxed text-gray-800 font-medium"></div>
+            
+            <footer class="mt-20 pt-10 border-t border-gray-200 text-center">
+                <p class="text-xs text-gray-400 italic">Terima kasih telah memilih Cortex Digital sebagai partner aset digital Anda.</p>
+            </footer>
         </div>
     </div>
 
     <script>
-        function prosesCetakInstan() {
-            const titleInput = document.getElementById('ebookTitle').value;
-            const contentInput = document.getElementById('ebookContent').value;
+        // Sinkronisasi input ke tampilan PDF secara real-time
+        const titleInput = document.getElementById('ebookTitle');
+        const contentInput = document.getElementById('ebookContent');
+        const titleDisplay = document.getElementById('pdfTitleDisplay');
+        const contentDisplay = document.getElementById('pdfContentDisplay');
 
-            document.getElementById('pdfTitle').innerText = titleInput;
-            document.getElementById('pdfContent').innerText = contentInput;
-
-            // Jalankan perintah cetak bawaan HP
-            window.print();
+        function updateDisplay() {
+            titleDisplay.innerText = titleInput.value;
+            contentDisplay.innerText = contentInput.value;
         }
+
+        titleInput.addEventListener('input', updateDisplay);
+        contentInput.addEventListener('input', updateDisplay);
+        updateDisplay(); // Jalankan sekali di awal
     </script>
 </body>
 </html>
