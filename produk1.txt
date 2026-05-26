@@ -1,0 +1,9 @@
+=========================================================
+      CORTEX DIGITAL - PREMIUM INTERIOR PROMPT PACK
+=========================================================
+
+PROMPT 01: Ruang Tamu Utama Japandi
+Kode: /imagine Japandi style living room, soft morning sunlight, oak wood furniture, beige linen sofa, olive tree plant in concrete pot, architectural digest style, photorealistic, 8k resolution, cinematic lighting, interior design photography --ar 16:9
+
+PROMPT 02: Kamar Tidur Utama Wabi-Sabi
+Kode: /imagine Wabi-sabi bedroom interior, textured plaster walls, low profile platform bed, raw linen fabrics, dried pampas grass in a large ceramic vase, warm earthy tones, moody ambient lighting, highly detailed, raw photo style --ar 16:9
