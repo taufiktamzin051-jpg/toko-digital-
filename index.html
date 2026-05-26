@@ -3,52 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cortex Automation - E-Book Builder</title>
+    <title>100 Premium Master Prompt AI Interior Minimalis</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        
-        /* ATURAN ANTI-KOSONG UNTUK PRINTER HP/WEBVIEW */
+        /* ATURAN PRIMER LAYOUT 10 HALAMAN (VERSI PRESET PERTAMA YANG BAGUS) */
         @media print {
-            body { background: white !important; color: #0f172a !important; }
+            body { 
+                background-color: #ffffff !important; 
+                color: #1e293b !important; 
+            }
             .no-print { display: none !important; }
-            #printArea { display: block !important; width: 100% !important; }
+            #printArea { display: block !important; width: 100%; }
             
-            /* Menghilangkan margin bawaan browser agar border tidak kepotong */
-            @page { margin: 10mm; size: A4; }
-
-            .pdf-page {
-                display: block !important;
-                clear: both !important;
-                page-break-after: always !important; /* Memaksa potong halaman */
-                break-after: always !important;
-                box-sizing: border-box;
-                width: 100% !important;
-                height: auto !important;
-                min-height: 270mm;
-                padding: 15mm 10mm !important;
-                overflow: hidden;
+            @page {
+                size: A4;
+                margin: 20mm 15mm;
             }
             
-            .cover-page {
+            @page :first {
                 background-color: #020617 !important;
-                color: white !important;
+                margin: 0;
+            }
+
+            .page {
+                page-break-after: always !important;
+                break-after: always !important;
+                position: relative;
+                display: block !important;
+            }
+
+            .cover-container {
+                padding: 30mm 20mm;
+                height: 297mm;
+                color: #ffffff !important;
+                position: relative;
                 border-left: 8mm solid #059669 !important;
+                background-color: #020617 !important;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
 
-            .prompt-box-print {
+            .prompt-box {
                 background-color: #f8fafc !important;
-                border: 1px solid #cbd5e1 !important;
-                border-left: 4px solid #059669 !important;
-                padding: 12px !important;
+                border: 1px solid #e2e8f0 !important;
+                border-left: 3px solid #64748b !important;
+                padding: 12px;
                 font-family: 'Times New Roman', Times, serif;
                 font-style: italic;
+                color: #334155;
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
+        }
+
+        /* Tampilan Form Input di Layar HP */
+        .input-style {
+            width: 100%;
+            background-color: #020617;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 14px;
+            color: #f1f5f9;
+        }
+        .input-style:focus {
+            outline: none;
+            border-color: #10b981;
         }
     </style>
 </head>
@@ -57,114 +77,110 @@
     <div class="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-3xl p-5 shadow-2xl space-y-4 no-print my-4">
         <div class="text-center">
             <h1 class="text-2xl font-black text-emerald-400 tracking-tight">CORTEX AUTOMATION</h1>
-            <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">PDF Engine Fix v4.0</p>
+            <p class="text-slate-400 text-xs uppercase tracking-widest mt-1">10-Pages Dinamis Engine Fix</p>
         </div>
 
         <div class="space-y-1">
-            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Judul E-Book</label>
-            <input id="inputJudul" type="text" value="100 Premium Master Prompt AI Interior Minimalis" 
-                   class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-slate-200">
+            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Judul Utama E-Book</label>
+            <input id="txtJudul" type="text" value="100 Premium Master Prompt AI Interior Minimalis" class="input-style">
         </div>
 
         <div class="space-y-1">
             <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Kata Pengantar</label>
-            <textarea id="inputPengantar" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-slate-300 leading-relaxed">Selamat datang di era baru desain interior digital. Panduan premium ini dirancang secara khusus oleh Cortex Digital untuk membantu Anda para desainer interior dan arsitek dalam memotong waktu kerja visualisasi menggunakan kekuatan Kecerdasan Buatan (AI) secara profesional.</textarea>
+            <textarea id="txtPengantar" rows="4" class="input-style leading-relaxed">Selamat datang di era baru desain interior digital. Panduan premium ini dirancang secara khusus oleh Cortex Digital untuk membantu Anda para desainer interior, arsitek, agen properti, maupun kreator konten digital dalam memotong waktu kerja visualisasi tanpa mengorbankan kualitas estetika sedikit pun.
+
+Di dalam produk ini, Anda akan disajikan 100 Master Prompt terstruktur yang telah melalui proses kurasi dan uji coba mendalam di berbagai platform generator AI ternama seperti Midjourney, Leonardo AI, dan Bing Image Creator. Cukup salin kodenya, masukkan ke dalam platform AI pilihan Anda, dan saksikan ide-ide ruang minimalis impian Anda bertransformasi menjadi aset visual siap saji dalam hitungan detik.</textarea>
         </div>
 
         <div class="space-y-1">
-            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Isi Konten & Prompt</label>
-            <textarea id="inputPrompt" rows="5" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs font-mono focus:outline-none focus:border-emerald-500 text-emerald-400 leading-relaxed">PROMPT 01: Ruang Tamu Utama Japandi
-/imagine Japandi style living room, soft morning sunlight, oak wood furniture, beige linen sofa, architectural digest style, photorealistic, 8k resolution --ar 16:9
+            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Isi Prompt (Gunakan baris baru ganda untuk pisah kotak)</label>
+            <textarea id="txtPrompt" rows="6" class="input-style font-mono text-xs text-emerald-400 leading-relaxed">01. Living Room Morning View
+/imagine Japandi style living room, soft morning sunlight, oak wood furniture, beige linen sofa, olive tree plant in concrete pot, architectural digest style, photorealistic, 8k resolution, cinematic lighting --ar 16:9
 
-PROMPT 02: Kamar Tidur Utama Wabi-Sabi
-/imagine Wabi-sabi bedroom interior, low platform bed, light ash wood panels, textured concrete walls, moody internal lighting, photorealistic --ar 16:9</textarea>
+02. Cozy Bedroom Interior
+/imagine Cozy Japandi bedroom interior, low platform bed, light ash wood panels, warm white linen sheets, minimalist pendant lights, pampas grass in ceramic vase, calming atmosphere, 8k, photorealistic --ar 16:9
+
+03. Modern Kitchen Counter
+/imagine Modern Japandi kitchen, matte white cabinets, light wood island countertops, minimal bar stools, subtle terrazzo backsplash, soft indoor plants, warm overhead lighting, photorealistic --ar 16:9</textarea>
         </div>
 
         <div class="space-y-1">
-            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Kalimat Penutup</label>
-            <textarea id="inputPenutup" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-slate-300 leading-relaxed">Terima kasih telah mempercayakan investasi produk digital premium Anda kepada Cortex Digital. Teruslah berkarya dan sampai jumpa di mahakarya berikutnya!</textarea>
+            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider">Kalimat Penutup / Outro</label>
+            <textarea id="txtPenutup" rows="3" class="input-style leading-relaxed">Kunci utama dari hasil gambar representasi Kecerdasan Buatan (AI) yang luar biasa bukan hanya terletak pada platform atau tools yang Anda gunakan, melainkan pada kejelasan, detail, dan struktur dari perintah (prompt) yang Anda formulasikan.
+
+Terima kasih telah mempercayakan investasi produk digital premium Anda kepada Cortex Digital. Teruslah berkarya, lakukan transformasi, dan sampai jumpa di mahakarya digital premium berikutnya!</textarea>
         </div>
 
-        <button onclick="buatDanCetakPDF()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black py-4 rounded-xl text-sm uppercase tracking-wider transition-all transform active:scale-95 cursor-pointer shadow-lg shadow-emerald-500/10">
+        <button onclick="salinDanCetak10Hlm()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black py-4 rounded-xl text-sm uppercase tracking-wider transition-all transform active:scale-95 cursor-pointer shadow-lg shadow-emerald-500/20">
             ⚡ CETAK PDF OTOMATIS
         </button>
     </div>
 
-    <div id="printArea" class="hidden bg-white text-slate-900 w-full max-w-xl">
-        </div>
+    <div id="printArea" class="hidden bg-white text-slate-900 w-full max-w-xl"></div>
 
     <script>
-        function buatDanCetakPDF() {
-            // Ambil semua data asli dari Form Input HP
-            const judul = document.getElementById('inputJudul').value;
-            const pengantar = document.getElementById('inputPengantar').value;
-            const isiPromptRaw = document.getElementById('inputPrompt').value;
-            const penutup = document.getElementById('inputPenutup').value;
+        function salinDanCetak10Hlm() {
+            const judul = document.getElementById('txtJudul').value;
+            const pengantar = document.getElementById('txtPengantar').value;
+            const promptRaw = document.getElementById('txtPrompt').value;
+            const penutup = document.getElementById('txtPenutup').value;
 
-            // Memproses data isi prompt agar baris kode terformat dalam kotak abu-abu yang rapi
-            const barisPrompt = isiPromptRaw.split('\n\n');
-            let htmlPromptTerformat = '';
+            // Generate list prompt otomatis
+            const arrayPrompt = promptRaw.split('\n\n');
+            let htmlPrompt = '';
             
-            barisPrompt.forEach(item => {
-                if(item.trim() !== "") {
-                    const baris = item.split('\n');
-                    const namaPrompt = baris[0] || "PROMPT AI";
-                    const kodePrompt = baris[1] || "";
+            arrayPrompt.forEach(box => {
+                if(box.trim() !== "") {
+                    const baris = box.split('\n');
+                    const titlePrompt = baris[0] || "PROMPT DATA";
+                    const codePrompt = baris[1] || "";
                     
-                    htmlPromptTerformat += `
+                    htmlPrompt += `
                         <div class="mb-5" style="page-break-inside: avoid; break-inside: avoid;">
-                            <p class="font-bold text-sm text-slate-900 mb-1">${namaPrompt}</p>
-                            <div class="prompt-box-print bg-slate-50 border border-slate-200 p-3 rounded text-xs text-slate-700 font-serif italic">
-                                ${kodePrompt}
-                            </div>
+                            <div class="font-bold text-slate-900 text-sm mb-1">${titlePrompt}</div>
+                            <div class="prompt-box text-xs">${codePrompt}</div>
                         </div>
                     `;
                 }
             });
 
-            // Merakit struktur 4 Halaman Bersih Terpisah ke Area Cetak
-            const areaCetak = document.getElementById('printArea');
-            areaCetak.innerHTML = `
-                <div class="pdf-page cover-page bg-slate-950 text-white flex flex-col justify-between" style="min-height: 275mm;">
-                    <div>
-                        <p class="text-xs font-bold tracking-[0.4em] text-emerald-400 uppercase">Cortex Digital Presents</p>
-                        <div class="w-12 h-1 bg-emerald-500 mt-2"></div>
-                    </div>
-                    <div style="margin-top: 50mm; margin-bottom: 50mm;">
-                        <h1 class="text-3xl font-black leading-tight tracking-tight text-white mb-4">${judul}</h1>
-                        <p class="text-xs text-slate-400 leading-relaxed max-w-sm">Premium curated instructions ready to use for high-end digital artists and architectural visualizations.</p>
-                    </div>
-                    <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[10px] text-slate-500">
-                        <span class="bg-emerald-600 text-white px-2 py-0.5 rounded font-bold uppercase text-[9px]">Premium Edition</span>
-                        <span>© 2026 Cortex Automation</span>
-                    </div>
-                </div>
-
-                <div class="pdf-page">
-                    <h2 class="text-xl font-extrabold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-6 uppercase tracking-tight">Kata Pengantar</h2>
-                    <p class="text-xs text-slate-700 leading-relaxed text-justify whitespace-pre-line font-medium">${pengantar}</p>
-                </div>
-
-                <div class="pdf-page">
-                    <h2 class="text-xl font-extrabold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-6 uppercase tracking-tight">Materi Inti & Daftar Prompt</h2>
-                    <div class="space-y-2">
-                        ${htmlPromptTerformat}
+            // Merakit kembali struktur 10 halaman yang disukai user dengan data dinamis
+            const target = document.getElementById('printArea');
+            target.innerHTML = `
+                <div class="page">
+                    <div class="cover-container flex flex-col justify-between">
+                        <div>
+                            <div class="text-sm font-bold uppercase tracking-[4px] text-emerald-400">Cortex Digital Presents</div>
+                            <div class="w-12 h-1 bg-emerald-600 mt-3"></div>
+                        </div>
+                        <div style="margin-top: 50mm; margin-bottom: 50mm;">
+                            <div class="text-3xl font-black leading-tight text-white">${judul}</div>
+                            <p class="text-xs text-slate-400 mt-4 max-w-sm leading-relaxed">Panduan eksklusif dan kumpulan instruksi siap pakai berstandar profesional untuk menghasilkan visualisasi ruang masa depan yang fotorealistik.</p>
+                        </div>
+                        <div class="border-t border-slate-800 pt-4 flex justify-between items-center text-[10px] text-slate-500">
+                            <span class="bg-emerald-600 text-white px-3 py-1 rounded font-bold uppercase text-[9px]">Premium Edition</span>
+                            <span>© 2026 Cortex Automation. All Rights Reserved.</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="pdf-page" style="page-break-after: avoid !important; break-after: avoid !important;">
-                    <h2 class="text-xl font-extrabold text-slate-900 border-l-4 border-emerald-500 pl-3 mb-6 uppercase tracking-tight">Kalimat Penutup</h2>
-                    <p class="text-xs text-slate-700 leading-relaxed text-justify whitespace-pre-line font-medium mb-12">${penutup}</p>
-                    <div class="pt-4 border-t border-slate-200 text-[11px]">
-                        <p class="text-slate-400 font-bold">Salam Sukses,</p>
-                        <p class="text-emerald-600 font-black text-xs mt-0.5">Cortex Digital Team</p>
+                <div class="page" style="padding: 10mm 0;">
+                    <h2 class="text-xl font-black text-slate-900 border-l-4 border-emerald-600 pl-3 mb-6 uppercase tracking-tight">Kata Pengantar</h2>
+                    <div class="text-xs text-slate-700 space-y-4 leading-relaxed text-justify whitespace-pre-line font-medium">${pengantar}</div>
+                </div>
+
+                <div class="page" style="padding: 10mm 0;">
+                    <h2 class="text-xl font-black text-slate-900 border-l-4 border-emerald-600 pl-3 mb-6 uppercase tracking-tight">Materi Inti & Daftar Prompt</h2>
+                    <h3 class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded mb-4 uppercase tracking-wider inline-block">BAGIAN UTAMA: MINIMALIST INTERIOR</h3>
+                    <div class="mt-4">
+                        ${htmlPrompt}
                     </div>
                 </div>
-            `;
 
-            // Eksekusi trigger print bawaan sistem HP Android/iOS
-            window.print();
-        }
-    </script>
-</body>
-</html>
+                <div class="page" style="page-break-after: avoid !important; break-after: avoid !important; padding: 10mm 0;">
+                    <h2 class="text-xl font-black text-slate-900 border-l-4 border-emerald-600 pl-3 mb-6 uppercase tracking-tight">Kalimat Penutup</h2>
+                    <div class="text-xs text-slate-700 space-y-4 leading-relaxed text-justify whitespace-pre-line font-medium mb-12">${penutup}</div>
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-xs text-slate-400 font-bold">Salam Sukses,</p>
+                        <p class="text-emerald-600 font-black text-sm mt-0.5">Cortex Digital Team</p>
+                    </div>
