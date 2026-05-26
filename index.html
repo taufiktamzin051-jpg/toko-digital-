@@ -5,67 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cortex PDF Generator</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* Mengatur agar saat dicetak, hanya area dokumen yang muncul */
+        @media print {
+            body * { display: none; }
+            #printArea, #printArea * { display: block; }
+            #printArea { position: absolute; left: 0; top: 0; width: 100%; color: #000 !important; }
+            .no-print { display: none !important; }
+        }
+    </style>
 </head>
 <body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col items-center p-4 font-sans">
+
     <header class="w-full max-w-2xl text-center my-6">
         <h1 class="text-3xl font-black tracking-tight text-emerald-400">CORTEX AUTOMATION</h1>
         <p class="text-gray-400 text-sm mt-1">Satu Klik Jadi E-Book PDF</p>
     </header>
+
     <main class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-xl space-y-4">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Judul E-Book</label>
             <input type="text" id="ebookTitle" value="50+ Premium AI Prompt Interior Minimalis" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white">
         </div>
+
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Isi Konten Produk</label>
             <textarea id="ebookContent" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-sm focus:outline-none focus:border-emerald-500 text-white resize-none">PROMPT 01: Ruang Tamu Utama Japandi
 Kode: /imagine Japandi style living room, soft morning sunlight, oak wood furniture, beige linen sofa, olive tree plant in concrete pot, architectural digest style, photorealistic, 8k resolution, cinematic lighting --ar 16:9
 
 PROMPT 02: Kamar Tidur Utama Wabi-Sabi
-Kode: /imagine Wabi-sabi bedroom interior, textured plaster walls, low profile platform bed, raw linen fabrics, dried pampas grass in a large ceramic vase, warm earthy tones, moody ambient lighting --ar 16:9</textarea>
+Kode: /imagine Wabi-sabi bedroom interior, textured plaster walls, low profile platform bed, raw linen fabrics, dried pampas grass in a large ceramic vase, warm earthy tones, moody ambient lighting --ar 16:9
+
+PROMPT 03: Dapur Bersih Modern Luxury
+Kode: /imagine Ultra-modern luxury kitchen, black matte cabinetry, white calacatta marble island, gold brass fixtures, hidden LED linear lights, dusk mood, view of city lights --ar 16:9</textarea>
         </div>
-        <button onclick="generateAutopilotPDF()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold py-3.5 rounded-xl text-center block shadow-lg shadow-emerald-500/10 cursor-pointer">
+
+        <button onclick="prosesCetakInstan()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-bold py-3.5 rounded-xl text-center block shadow-lg shadow-emerald-500/10 cursor-pointer text-sm">
             ⚡ CETAK PDF OTOMATIS
         </button>
     </main>
-    <div class="hidden">
-        <div id="pdfTemplate" class="p-12 bg-white text-gray-900 space-y-8" style="width: 210mm; min-h: 297mm; font-family: 'Helvetica', Arial, sans-serif;">
-            <div class="border-4 border-emerald-600 p-8 flex flex-col justify-between h-[250mm] bg-slate-50">
-                <div>
-                    <p class="text-xs uppercase font-bold tracking-widest text-emerald-600">Premium Digital Asset</p>
-                    <h1 id="pdfTitle" class="text-4xl font-black tracking-tight text-slate-900 mt-4 leading-tight"></h1>
-                    <div class="w-20 h-1.5 bg-emerald-500 mt-6"></div>
-                </div>
-                <div class="flex justify-between items-center border-t border-slate-200 pt-6">
-                    <p class="text-sm font-bold text-slate-700">Diterbitkan oleh: <strong>Cortex Digital</strong></p>
-                    <p class="text-xs text-slate-400">Hak Cipta Dilindungi © 2026</p>
-                </div>
+
+    <div id="printArea" class="hidden bg-white text-black p-8" style="font-family: Arial, sans-serif;">
+        <div style="border: 5px solid #10b981; padding: 40px; height: 260mm; display: flex; flex-direction: column; justify-content: space-between; background-color: #f8fafc;">
+            <div>
+                <p style="font-size: 12px; text-transform: uppercase; font-weight: bold; tracking-widest; color: #059669;">Premium Digital Asset</p>
+                <h1 id="pdfTitle" style="font-size: 32px; font-weight: 900; color: #0f172a; margin-top: 20px;"></h1>
+                <div style="width: 80px; height: 6px; background-color: #10b981; margin-top: 20px;"></div>
             </div>
-            <div style="page-break-before: always;"></div>
-            <div class="py-6">
-                <h2 class="text-xl font-bold text-emerald-600 border-b-2 border-emerald-500 pb-2 mb-6">DAFTAR ISI & MATERI INTI</h2>
-                <div id="pdfContent" class="text-sm text-slate-800 whitespace-pre-line leading-relaxed space-y-4"></div>
+            <div style="border-top: 1px solid #e2e8f0; pt: 20px; display: flex; justify-content: space-between;">
+                <p style="font-size: 14px;">Diterbitkan oleh: <strong>Cortex Digital</strong></p>
+                <p style="font-size: 12px; color: #94a3b8;">© 2026 Hak Cipta Dilindungi</p>
             </div>
         </div>
+        
+        <div style="page-break-before: always; margin-top: 30px;">
+            <h2 style="font-size: 20px; font-weight: bold; color: #059669; border-b: 2px solid #10b981; padding-bottom: 5px;">DAFTAR ISI & MATERI INTI</h2>
+            <div id="pdfContent" style="font-size: 14px; white-space: pre-line; line-height: 1.6; color: #334155; margin-top: 20px;"></div>
+        </div>
     </div>
+
     <script>
-        function generateAutopilotPDF() {
+        function prosesCetakInstan() {
             const titleInput = document.getElementById('ebookTitle').value;
             const contentInput = document.getElementById('ebookContent').value;
+
             document.getElementById('pdfTitle').innerText = titleInput;
             document.getElementById('pdfContent').innerText = contentInput;
-            const element = document.getElementById('pdfTemplate');
-            const options = {
-                margin: 0,
-                filename: titleInput.toLowerCase().replace(/[^a-z0-9]/g, '-') + '.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(options).from(element).save();
+
+            // Jalankan perintah cetak bawaan HP
+            window.print();
         }
     </script>
 </body>
-            </html>
-                    
+</html>
