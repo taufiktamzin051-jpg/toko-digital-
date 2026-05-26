@@ -22,8 +22,8 @@
                 break-after: always;
                 box-sizing: border-box;
                 width: 100%;
-                min-height: 290mm; /* Menjaga ukuran pas satu halaman A4 */
-                padding: 3rem !important;
+                height: 100vh; /* Mengunci pas satu halaman penuh printer HP */
+                padding: 2.5rem !important;
             }
         }
     </style>
@@ -32,7 +32,7 @@
 
     <header class="w-full max-w-2xl text-center my-6 no-print">
         <h1 class="text-3xl font-black tracking-tight text-emerald-400">CORTEX AUTOMATION</h1>
-        <p class="text-gray-400 text-sm mt-1 uppercase tracking-widest">E-Book Master Engine v2.3</p>
+        <p class="text-gray-400 text-sm mt-1 uppercase tracking-widest">E-Book Master Engine v2.4</p>
     </header>
 
     <main class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-3xl p-6 shadow-2xl space-y-4 no-print">
@@ -55,30 +55,29 @@
         
         <div class="pdf-page bg-white text-gray-900 border-8 border-emerald-600">
             <div class="w-full">
-                <p class="text-lg font-bold tracking-[0.4em] text-emerald-700 uppercase">Cortex Digital Presents</p>
-                <div class="w-16 h-1.5 bg-emerald-600 mt-2"></div>
+                <p class="text-base font-bold tracking-[0.4em] text-emerald-700 uppercase">Cortex Digital Presents</p>
+                <div class="w-16 h-1 bg-emerald-600 mt-2"></div>
             </div>
             
-            <div class="w-full my-auto py-12">
-                <h1 id="pdfTitleDisplay" class="text-4xl font-black leading-tight tracking-tight text-gray-950 border-b-4 border-gray-900 pb-6 mb-6">
-                    </h1>
-                <p class="text-lg font-medium tracking-wide text-gray-700 max-w-md">Panduan Lengkap Master Prompt AI untuk Profesional, Arsitek, & Desainer Interior.</p>
+            <div class="w-full my-auto py-4">
+                <h1 id="pdfTitleDisplay" class="text-3xl font-black leading-tight tracking-tight text-gray-950 border-b-4 border-gray-900 pb-4 mb-4"></h1>
+                <p class="text-base font-medium tracking-wide text-gray-700 max-w-md">Panduan Lengkap Master Prompt AI untuk Profesional, Arsitek, & Desainer Interior.</p>
             </div>
 
-            <div class="w-full border-t border-gray-200 pt-6 flex justify-between items-center">
-                <span class="bg-gray-950 text-white px-4 py-1.5 rounded-md font-bold text-xs uppercase tracking-widest">Premium Edition</span>
-                <span class="text-gray-500 text-xs font-bold">© 2026 Cortex Automation</span>
+            <div class="w-full border-t border-gray-200 pt-4 flex justify-between items-center text-xs">
+                <span class="bg-gray-950 text-white px-3 py-1 rounded font-bold uppercase tracking-widest">Premium Edition</span>
+                <span class="text-gray-500 font-bold">© 2026 Cortex Automation</span>
             </div>
         </div>
 
         <div class="pdf-page bg-white text-gray-900">
             <div class="w-full">
-                <h2 class="text-2xl font-black text-emerald-800 border-b-4 border-emerald-500 pb-3 mb-6 uppercase tracking-tight">Materi Inti & Daftar Prompt</h2>
-                <div id="pdfContentDisplay" class="text-sm whitespace-pre-line leading-relaxed text-gray-800 font-medium"></div>
+                <h2 class="text-xl font-black text-emerald-800 border-b-4 border-emerald-500 pb-2 mb-4 uppercase tracking-tight">Materi Inti & Daftar Prompt</h2>
+                <div id="pdfContentDisplay" class="text-xs whitespace-pre-line leading-relaxed text-gray-800 font-medium"></div>
             </div>
             
-            <footer class="w-full mt-12 pt-6 border-t border-gray-200 text-center">
-                <p class="text-xs text-gray-400 italic">Terima kasih telah memilih Cortex Digital sebagai partner aset digital Anda.</p>
+            <footer class="w-full border-t border-gray-200 pt-4 text-center">
+                <p class="text-[10px] text-gray-400 italic">Terima kasih telah memilih Cortex Digital sebagai partner aset digital Anda.</p>
             </footer>
         </div>
         
