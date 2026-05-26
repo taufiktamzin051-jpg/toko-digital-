@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cortex PDF - Premium Builder</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Poppins', sans-serif; }
         @media print {
@@ -13,11 +13,12 @@
             #printArea, #printArea * { display: block; }
             #printArea { position: absolute; left: 0; top: 0; width: 100%; }
             .page-break { page-break-before: always; }
+            /* Memaksa browser HP memunculkan warna background saat dicetak */
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         }
-        .cover-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_collection/image_retrieval/4772452977217759515');
-            background-size: cover;
-            background-position: center;
+        /* Menggunakan gradasi warna solid mewah (Dark Emerald/Slate) agar anti-blank di HP */
+        .cover-premium {
+            background: linear-gradient(135deg, #020617 0%, #064e3b 50%, #020617 100%);
         }
     </style>
 </head>
@@ -25,44 +26,44 @@
 
     <header class="w-full max-w-2xl text-center my-6">
         <h1 class="text-3xl font-black tracking-tight text-emerald-400">CORTEX AUTOMATION</h1>
-        <p class="text-gray-400 text-sm mt-1 uppercase tracking-widest">E-Book Master Engine v2.0</p>
+        <p class="text-gray-400 text-sm mt-1 uppercase tracking-widest">E-Book Master Engine v2.1</p>
     </header>
 
     <main class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-3xl p-6 shadow-2xl space-y-4">
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Judul Produk (Muncul di Cover)</label>
-            <input type="text" id="ebookTitle" value="50+ Premium AI Prompt Interior Minimalis" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white font-bold">
+            <input type="text" id="ebookTitle" value="100 Premium Master Prompt AI Interior Minimalis" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-500 text-white font-bold">
         </div>
 
         <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-emerald-500 mb-1">Isi Konten E-Book</label>
-            <textarea id="ebookContent" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-xs focus:outline-none focus:border-emerald-500 text-white resize-none leading-relaxed">TEMPEL MATERI LENGKAP ANDA DI SINI...</textarea>
+            <textarea id="ebookContent" rows="8" class="w-full bg-gray-950 border border-gray-800 rounded-xl p-4 text-xs focus:outline-none focus:border-emerald-500 text-white resize-none leading-relaxed">TEMPEL MATERI LENGKAP DI SINI...</textarea>
         </div>
 
-        <button onclick="window.print()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-black py-4 rounded-2xl text-center block shadow-lg shadow-emerald-500/20 cursor-pointer transform active:scale-95 transition-all uppercase tracking-tighter">
+        <button onclick="window.print()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-gray-950 font-black py-4 rounded-2xl text-center block shadow-lg shadow-emerald-500/20 cursor-pointer transform active:scale-95 transition-all uppercase tracking-tighter text-sm">
             ⚡ GENERATE E-BOOK + COVER MEWAH
         </button>
     </main>
 
     <div id="printArea" class="hidden">
-        <div class="cover-bg relative w-full h-[296mm] flex flex-col justify-between p-16 text-white overflow-hidden">
-            <div class="z-10">
-                <p class="text-xl font-bold tracking-[0.5em] text-emerald-400 opacity-80 uppercase">Cortex Digital Presents</p>
+        <div class="cover-premium w-full h-[296mm] flex flex-col justify-between p-16 text-white overflow-hidden">
+            <div>
+                <p class="text-xl font-bold tracking-[0.5em] text-emerald-400 opacity-90 uppercase">Cortex Digital Presents</p>
                 <div class="w-20 h-2 bg-emerald-500 mt-4"></div>
             </div>
             
-            <div class="z-10 mb-20">
-                <h1 id="pdfTitleDisplay" class="text-7xl font-black leading-[0.9] tracking-tighter mb-6"></h1>
-                <p class="text-2xl font-light tracking-wide text-gray-300">Panduan Lengkap Master Prompt AI untuk Profesional & Desainer.</p>
+            <div class="mb-20">
+                <h1 id="pdfTitleDisplay" class="text-5xl font-black leading-[1.1] tracking-tight mb-6 text-white"></h1>
+                <p class="text-lg font-light tracking-wide text-gray-300 max-w-md">Panduan Lengkap Master Prompt AI untuk Profesional, Arsitek, & Desainer.</p>
                 <div class="mt-12 flex items-center space-x-4">
-                    <span class="bg-emerald-600 px-6 py-2 rounded-full font-bold text-sm uppercase tracking-widest">Premium Edition</span>
-                    <span class="text-gray-400 text-sm">© 2026 Cortex Automation</span>
+                    <span class="bg-emerald-600 text-white px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest">Premium Edition</span>
+                    <span class="text-gray-400 text-xs">© 2026 Cortex Automation</span>
                 </div>
             </div>
         </div>
 
         <div class="page-break bg-white p-16 text-gray-900 min-h-[297mm]">
-            <h2 class="text-3xl font-black text-emerald-700 border-b-4 border-emerald-500 pb-4 mb-8 uppercase tracking-tighter">Materi Inti & Daftar Prompt</h2>
+            <h2 class="text-2xl font-black text-emerald-800 border-b-4 border-emerald-500 pb-3 mb-6 uppercase tracking-tight">Materi Inti & Daftar Prompt</h2>
             <div id="pdfContentDisplay" class="text-sm whitespace-pre-line leading-relaxed text-gray-800 font-medium"></div>
             
             <footer class="mt-20 pt-10 border-t border-gray-200 text-center">
@@ -72,7 +73,6 @@
     </div>
 
     <script>
-        // Sinkronisasi input ke tampilan PDF secara real-time
         const titleInput = document.getElementById('ebookTitle');
         const contentInput = document.getElementById('ebookContent');
         const titleDisplay = document.getElementById('pdfTitleDisplay');
@@ -85,7 +85,7 @@
 
         titleInput.addEventListener('input', updateDisplay);
         contentInput.addEventListener('input', updateDisplay);
-        updateDisplay(); // Jalankan sekali di awal
+        updateDisplay();
     </script>
 </body>
 </html>
